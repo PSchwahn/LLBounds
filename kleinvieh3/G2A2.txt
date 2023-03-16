@@ -1,0 +1,4 @@
+====== Sym2LowerBounds5 for G=G2, H=A2======
+
+LiE isotropy representation: 2X[0,0] - 1X[1,1]
+Sage isotropy representation: 2*A2(0,0) - A2(1,1)

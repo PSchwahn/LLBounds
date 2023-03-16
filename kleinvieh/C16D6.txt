@@ -1,0 +1,20 @@
+====== Sym2LowerBounds5 for G=C16, H=D6======
+
+LiE isotropy representation: 1X[0,0,0,0,2,0]
+Sage isotropy representation: D6(0,0,0,0,2,0)
+Einstein constant: E=43/136
+Isotype in Sym^2_0       CasGMin        CasGMax        CasH           A*AMin         A*AMax         q(R)Min        
+D6(0,0,0,0,4,0)          36/17          36/17          21/68          105/68         105/68         189/272        
+D6(0,0,0,1,0,0)          16/17          36/17          2/17           19/34          59/34          35/136         
+D6(0,0,0,2,0,0)          33/17          33/17          9/34           24/17          24/17          21/34          
+D6(0,1,0,0,2,0)          33/17          36/17          15/68          99/68          111/68         159/272        
+D6(0,2,0,0,0,0)          33/17          36/17          11/68          103/68         115/68         147/272        
+q(R)>E is potentially violated on: [[0,0,0,1,0,0]]
+Crude estimate: LL > 2E if CasG > 1/68*sqrt(5369) + 83/68, approx. 2.2981
+Fourier mode             CasG           KT?            LL >=          LL >= 2E?      
+1e_2                     16/17          !              37/68                         
+2e_2                     33/17          !              95/68          >              
+2e_1+1e_2                2                             101/68         >              
+4e_1                     36/17                         99/68          >              
+
+Done!

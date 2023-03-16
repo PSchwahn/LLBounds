@@ -1,0 +1,8 @@
+====== Sym2LowerBounds5 for G=B3, H=G2======
+
+LiE isotropy representation: 1X[1,0]
+Sage isotropy representation: G2(1,0)
+Einstein constant: E=9/20
+Isotype in Sym^2_0       CasGMin        CasGMax        CasH           A*AMin         A*AMax         q(R)Min        
+G2(2,0)                  6/5            12/5           14/15          -8/15          2/3            4/5            
+q(R)>E holds globally, implying stability.

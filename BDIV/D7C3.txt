@@ -1,0 +1,28 @@
+====== Sym2LowerBounds5 for G=D7, H=C3======
+
+LiE isotropy representation: 1X[1,0,1]
+Sage isotropy representation: C3(1,0,1)
+Einstein constant: E=3/8
+Isotype in Sym^2_0       CasGMin        CasGMax        CasH           A*AMin         A*AMax         q(R)Min        
+C3(0,1,0)                7/6            13/6           1/8            13/24          37/24          25/96          
+C3(0,2,0)                7/6            13/6           7/24           3/8            11/8           37/96          
+C3(0,3,0)                13/6           13/6           1/2            7/6            7/6            19/24          
+C3(1,1,1)                5/3            13/6           7/16           35/48          59/48          119/192        
+C3(2,0,2)                13/6           13/6           5/8            25/24          25/24          85/96          
+C3(2,1,0)                5/3            13/6           1/3            5/6            4/3            13/24          
+C3(4,0,0)                5/3            13/6           5/12           3/4            5/4            29/48          
+q(R)>E is potentially violated on: [[0,1,0]]
+Crude estimate: LL > 2E if CasG > 1/48*sqrt(2923) + 4/3, approx. 2.4597
+Fourier mode             CasG           KT?            LL >=          LL >= 2E?      
+1e_1                     13/24                         13/48                         
+2e_1                     7/6                           19/48                         
+1e_1+1e_2                13/8                          43/48          >              
+1e_4                     5/3                           43/48          >              
+1e_5                     15/8                          53/48          >              
+1e_1+1e_3                2                             21/16          >              
+1e_6+1e_7                2                             59/48          >              
+2e_2                     13/6                          59/48          >              
+1e_1+1e_4                55/24                         23/16          >              
+2e_1+1e_2                7/3                           73/48          >              
+
+Done!

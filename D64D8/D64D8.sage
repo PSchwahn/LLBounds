@@ -1,0 +1,5 @@
+G=WeylCharacterRing("D64",style="coroots")
+H=WeylCharacterRing("D8",style="coroots")
+b=branching_rule("D64","D8(0,0,0,0,0,0,1,0)",rule="plethysm")
+SLBModularFiber(G,H,b)
+SLBModularFourier()

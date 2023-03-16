@@ -1,0 +1,21 @@
+====== Sym2LowerBounds5 for G=C10, H=A5======
+
+LiE isotropy representation: 1X[0,0,2,0,0]
+Sage isotropy representation: A5(0,0,2,0,0)
+Einstein constant: E=15/44
+Isotype in Sym^2_0       CasGMin        CasGMax        CasH           A*AMin         A*AMax         q(R)Min        
+A5(0,0,4,0,0)            24/11          24/11          5/11           15/11          15/11          35/44          
+A5(0,1,0,1,0)            10/11          24/11          5/33           13/33          5/3            1/4            
+A5(0,2,0,2,0)            21/11          21/11          4/11           13/11          13/11          29/44          
+A5(1,0,2,0,1)            21/11          24/11          10/33          41/33          50/33          27/44          
+A5(2,0,0,0,2)            21/11          24/11          7/33           4/3            53/33          6/11           
+q(R)>E is potentially violated on: [[0,1,0,1,0]]
+Crude estimate: LL > 2E if CasG > 1/2*sqrt(5) + 29/22, approx. 2.4362
+Fourier mode             CasG           KT?            LL >=          LL >= 2E?      
+1e_2                     10/11          !              4/11                          
+1e_1+1e_3                20/11                         29/22          >              
+2e_2                     21/11                         25/22          >              
+2e_1+1e_2                2                             14/11          >              
+4e_1                     24/11                         27/22          >              
+
+Done!

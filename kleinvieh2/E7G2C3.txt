@@ -1,0 +1,22 @@
+====== Sym2LowerBounds5 for G=E7, H=G2C3======
+
+LiE isotropy representation: 1X[1,0,0,1,0]
+Sage isotropy representation: G2xC3(1,0,0,1,0)
+Einstein constant: E=7/18
+Isotype in Sym^2_0       CasGMin        CasGMax        CasH           A*AMin         A*AMax         q(R)Min        
+G2xC3(0,0,0,1,0)         14/9           19/9           1/6            5/6            25/18          3/8            
+G2xC3(0,0,0,2,0)         14/9           19/9           7/18           11/18          7/6            13/24          
+G2xC3(0,1,1,0,1)         19/9           19/9           5/9            1              1              29/36          
+G2xC3(0,1,2,0,0)         14/9           19/9           4/9            5/9            10/9           7/12           
+G2xC3(1,0,1,0,1)         14/9           19/9           4/9            5/9            10/9           7/12           
+G2xC3(1,0,2,0,0)         14/9           19/9           1/3            2/3            11/9           1/2            
+G2xC3(2,0,0,0,0)         14/9           19/9           7/27           20/27          35/27          4/9            
+G2xC3(2,0,0,1,0)         14/9           19/9           23/54          31/54          61/54          41/72          
+G2xC3(2,0,0,2,0)         19/9           19/9           35/54          49/54          49/54          7/8            
+q(R)>E is potentially violated on: [[0,0,0,1,0]]
+Crude estimate: LL > 2E if CasG > 13/6, approx. 2.1667
+Fourier mode             CasG           KT?            LL >=          LL >= 2E?      
+1e_6                     14/9                          1              >              
+2e_1                     19/9                          13/9           >              
+
+Done!

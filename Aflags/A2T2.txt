@@ -1,0 +1,15 @@
+====== Sym2LowerBounds (2023/03/04 19:00) for G=A2, H=T2======
+
+LiE isotropy representation: 1X[-2, 1] +1X[-1,-1] +1X[-1, 2] +1X[ 1,-2] +1X[ 1, 1] +1X[ 2,-1]
+Einstein constant: E=5/12
+q(R)>E is potentially violated on a subspace of dimension: 7
+Crude estimate: LL > 2E if CasG > 2/3*sqrt(6) + 11/6, approx. 3.4663
+Scanning for 0 <= CasG <= C.
+Fourier mode             CasG           LL >=          LL >= 2E?      
+0                        0              -2/3                          
+1e_1+1e_2                1              -5/6                          
+3e_1                     2              -1/6                          
+3e_2                     2              -1/6                          
+2e_1+2e_2                8/3            1/6                           
+
+Done!
