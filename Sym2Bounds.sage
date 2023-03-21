@@ -1,6 +1,3 @@
-#DISCLAIMER: all following functions sometimes take in redundant arguments.
-#The idea is that this improves performance when put together.
-#But it can still be optimized... this needs to be refactored.
 def Casimir(rep):
     hweight=rep.highest_weight()
     #might need to be careful with rho() for groups of type A_n (GL/SL)
@@ -82,9 +79,9 @@ def RepFactors(rep,Hlist):
         out+=[Hlist[i](tuple(repindex[cumrank:cumrank+ranklist[i]]))]
         cumrank+=ranklist[i]
     return out
-#Let H=H_1 x ... x H_k.
-#Input: H, isotropy representation m of H
-#Output: constants c_1,...,c_k
+#Let H = H_1 x ... x H_k.
+#Input: H, isotropy representation of H
+#Output: normalization constants for Casimir operator
 def CasNormConstants(isorep,Hlist):
     monomials=isorep.monomials()
     out=[]
@@ -123,7 +120,7 @@ def LiEgroupfromWCR(G):
         for x in ct.component_types():
             ctstring+=x[0]+str(x[1])
     return lie(ctstring)
-#G simple, H semisimple
+#G simple, H semisimple, b branching rule
 def resmatrix(G,H,b):
     rkG=G.rank()
     fw=G.fundamental_weights()
@@ -155,14 +152,13 @@ def SageRepfromList(G,rep):
         if G.cartan_type()[1]==1:
             return G(*rep,0)
     return G(*rep)
-#PROBLEM: lie cannot read in strings/data that is too long.
+#PROBLEM: lie interface cannot read in strings/data that is too long.
 #-> data must be generated in LiE, not fed into LiE.
-#GOAL: Large data generated in LiE, not fed into LiE.
+#GOAL: Large data generated in LiE itself.
 def ScanCasKillingLiE(G,q):
     #output: [[LiErep,CasG],...]
     CasAd=CasAdjoint(G)
     rank=G.rank()
-    #tuple is immutable/non-subscriptable, but list is not hashable..
     nullweight=lie.null(rank)
     out=[[nullweight,0]]
     for i in range(1,rank+1):
@@ -845,10 +841,8 @@ def Sym2LowerBoundsWithTorus(G,Hss,rm,startscan=0,endscan=-1):
     f.write("\nDone!")
     f.close()
 #Sym2LowerBounds for flag manifolds:
-#Instead of CasTorus, use inverse Cartan matrix
 #input: just the cartan type string of G
 def Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1):
-    print("G="+cartantype)
     print("Initializing...",end="\r")
     famG=cartantype[0]
     rankG=int(cartantype[1:])
@@ -1055,6 +1049,5 @@ def Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1):
     
 #added startscan and endcan parameters for non-semisimple isotropy / full flags
 #changed key type for CasHDict and CasGMinDict from LiEobject to tuple.
-#Hope this fixes hash table overflow.
 version="2023/03/04 19:15"
 print("Sym2Bounds version "+version+".")

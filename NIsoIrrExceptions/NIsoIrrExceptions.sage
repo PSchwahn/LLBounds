@@ -1,5 +1,3 @@
-#kleinvieh4: exceptional non-isotropy-irreducible spaces with semisimple isotropy
-#left out: E6/D4T2 (unstable by Lauret) and full flags of E6,E7,E8 (G-stable)
 #Not isotropy irreducible exceptions
 
 todolist=[]

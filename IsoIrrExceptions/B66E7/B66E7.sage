@@ -1,0 +1,5 @@
+G=WeylCharacterRing("B66",style="coroots")
+H=WeylCharacterRing("E7",style="coroots")
+b=branching_rule("B66","E7(1,0,0,0,0,0,0)",rule="plethysm")
+print("G=B66, H=E7")
+Sym2LowerBounds(G,H,b)

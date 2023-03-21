@@ -4,7 +4,7 @@ A project for computing lower bounds for the Lichnerowicz Laplacian on homogeneo
 
 Running the code requires an installation of both Sage and LiE.
 
-TODO: Update nomenclature, clean up further, print cartan types, reset .sage files, document usage, D(highrank)/...
+TODO: document usage, test all reworked files.
 
 ## Usage
 
@@ -42,7 +42,7 @@ The output consists of fibrewise estimates for *A\*A* and *q(R)* on the standard
 
 ## Subfolders
 
-TODO
+There is a subfolder containing a `.sage` file for each family and for the two classes of exceptions. Make sure to comment/uncomment or alter the `for` loops at the end of each file that starts the computation as needed.
 
 ## Troubleshooting
 
