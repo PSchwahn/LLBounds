@@ -1,2 +1,0 @@
-====== Sym2LowerBounds (2023/03/04 19:15) for G=A12, H=A1C2T5======
-
