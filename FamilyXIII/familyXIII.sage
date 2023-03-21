@@ -25,7 +25,6 @@ def family(k,n):
     G=WeylCharacterRing(Gstr,style="coroots")
     H=WeylCharacterRing(Hstr,style="coroots")
     print("k="+str(k)+", n="+str(n))
-    print("G="+Gstr+", H="+Hstr)
     Sym2LowerBounds(G,H,b)
 
 #r=20

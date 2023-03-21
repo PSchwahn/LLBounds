@@ -10,7 +10,6 @@ def family(k,n):
     LiEG=LiEgroupfromWCR(G)
     LiEhbasis=lie(hbasis)
     rm=[list(x) for x in lie.res_mat(LiEhbasis,LiEG).sage()]
-    print("G="+Gstr+", Hss="+Hssstr)
     Sym2LowerBoundsWithTorus(G,Hss,rm)
 
 #r=20

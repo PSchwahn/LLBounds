@@ -4,8 +4,6 @@ A project for computing lower bounds for the Lichnerowicz Laplacian on homogeneo
 
 Running the code requires an installation of both Sage and LiE.
 
-TODO: document usage, test all reworked files.
-
 ## Usage
 
 Open sage in a terminal and type:
@@ -30,7 +28,9 @@ LiE instead uses a *restriction matrix* for branching. Since LiE works with row 
 
 `Sym2LowerBounds(G,H,b,startscan=0,endscan=-1)` takes as input the WeylCharacterRings `G` and `H` corresponding to a **simple** Lie group *G* and a **semisimple** subgroup *H*, a branching rule `b` (alternatively the restriction matrix as used in LiE, given as a list of lists), and the two optional arguments `startscan` and `endscan` which refer to the range of Casimir eigenvalues of *G* for which Fourier modes should be scanned. If left blank, the appropriate upper bounds is automatically determined using the *crude estimate*.
 
-The output consists of fibrewise estimates for *A\*A* and *q(R)* on the standard homogeneous space *G/H* as well as Fourier-mode-wise lower bounds for the Lichnerowicz Laplacian (if *q(R)>E* does not follow from the first step). This is printed to the console and also to a `.txt` file, named by the Cartan types of *G* and *H*.
+The output consists of fibrewise estimates for *A\*A* and *q(R)* on the standard homogeneous space *G/H* as well as Fourier-mode-wise lower bounds for the Lichnerowicz Laplacian (if *q(R)>E* does not follow from the first step). Additionally, the program tries to find Killing tensors in each Fourier mode by comparing *Hom(.,Sym^2_0)* with *Hom(.,Sym^2)*.
+
+This is printed to the console and also to a `.txt` file, named by the Cartan types of *G* and *H*.
 
 ### Sym2LowerBoundsWithTorus
 

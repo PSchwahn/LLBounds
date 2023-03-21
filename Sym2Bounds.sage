@@ -843,13 +843,13 @@ def Sym2LowerBoundsWithTorus(G,Hss,rm,startscan=0,endscan=-1):
 #Sym2LowerBounds for flag manifolds:
 #input: just the cartan type string of G
 def Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1):
-    print("Initializing...",end="\r")
     famG=cartantype[0]
     rankG=int(cartantype[1:])
     LiEG=lie(cartantype)
     LiEH=lie("T"+cartantype[1:])
     dimG=lie.dim(LiEG).sage()
     G=WeylCharacterRing(cartantype,style="coroots")
+    print("G="+str(LiEG)+", H="+str(LiEH))
     f=open(str(LiEG)+str(LiEH)+".txt","w")
     f.write("====== Sym2LowerBounds ("+version+") for G="+str(LiEG)+", H="+str(LiEH)+"======\n\n")
     print("Computing isotropy representation...",end="\r")

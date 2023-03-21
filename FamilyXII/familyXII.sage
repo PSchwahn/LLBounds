@@ -24,8 +24,7 @@ def family(p,q,l):
     LiErm3=lie.res_mat(LiEbasis,LiEG)
     rmat=LiErm3.sage()*rm2
     rm=[list(x) for x in rmat]
-    print("G="+Gstr+", Hss="+Hssstr)
-    Sym2LowerBoundsWithTorus(G,H,rm)
+    Sym2LowerBoundsWithTorus(G,Hss,rm)
 
 #r=40
 #table=[[[p,q,(p^2+q^2+1)/(p*q),p*q+(p^2+q^2+1)/(p*q)] for q in range(p,r+1)] for p in range(2,r+1)]

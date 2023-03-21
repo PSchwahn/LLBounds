@@ -6,7 +6,6 @@ def family(n):
     G=WeylCharacterRing(Gstr,style="coroots")
     H=WeylCharacterRing(Hstr,style="coroots")
     b=branching_rule(Gstr,Hstr+"(2"+(n-2)*",0"+")","plethysm")
-    print("G="+Gstr+", H="+Hstr)
     Sym2LowerBounds(G,H,b)
     
 #for n in range(3,21): family(n)

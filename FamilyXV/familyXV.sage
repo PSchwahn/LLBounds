@@ -6,7 +6,6 @@ def family(n):
     b=branching_rule(Gstr,Hstr,"tensor")
     G=WeylCharacterRing(Gstr,style="coroots")
     H=WeylCharacterRing(Hstr,style="coroots")
-    print("G="+Gstr+", H="+Hstr)
     Sym2LowerBounds(G,H,b)
 
 #for n in range(2,21): family(n)

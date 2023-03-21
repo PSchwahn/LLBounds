@@ -121,19 +121,14 @@ bD13A1C5D3=b1*branching_rule("D10xD3","A1xC5xD3",[b2*b4,b6*b7])
 todolist+=[[D13,A1C5D3,bD13A1C5D3]]
 
 for item in todolist:
-    print("G="+str(item[0])+", H="+str(item[1]))
     Sym2LowerBounds(*item)
     
 #E6D4T2
 #rm: first to D5T1, then to D4T2.
 rm=[[0,0,0,0,-2,2],[0,0,1,0,-1,3],[1,0,0,0,-2,4],[0,1,0,0,-2,6],[0,0,0,1,-1,5],[0,0,0,0, 0,4]]
-print("G=E6, H=D4T2")
 Sym2LowerBoundsWithTorus(E6,D4,rm)
 
 #Full flags of E6, E7, E8
-print("G=E6, H=T6")
 Sym2LowerBoundsFullFlag("E6")
-print("G=E7, H=T7")
 Sym2LowerBoundsFullFlag("E7")
-print("G=E8, H=T8")
 Sym2LowerBoundsFullFlag("E8")

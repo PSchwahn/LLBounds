@@ -211,7 +211,6 @@ def XIXbranch(inputlist):
     G=WeylCharacterRing(Gstr,style="coroots")
     H=WeylCharacterRing(Hstr,style="coroots")
     b=branching_rule(Gstr,"x".join(SOmlist),"orthogonal_sum")*branching_rule("x".join(SOmlist),Hstr,multibranch)
-    print("G="+Gstr+", H="+Hstr)
     print("Defined by the symmetric space with isotropy rep. "+str(isotropieslist))
     return [G,H,b]
 

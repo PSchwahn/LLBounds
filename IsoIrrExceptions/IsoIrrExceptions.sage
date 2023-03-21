@@ -176,5 +176,4 @@ bD39E6=branching_rule("D39","E6(0,1,0,0,0,0)",rule="plethysm")
 todolist+=[[D39,E6,bD39E6]]
 
 for item in todolist:
-    print("G="+str(item[0])+", H="+str(item[1]))
     Sym2LowerBounds(*item)
