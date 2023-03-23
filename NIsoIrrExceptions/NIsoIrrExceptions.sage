@@ -120,8 +120,7 @@ b7=branching_rule("A3","D3","isomorphic")
 bD13A1C5D3=b1*branching_rule("D10xD3","A1xC5xD3",[b2*b4,b6*b7])
 todolist+=[[D13,A1C5D3,bD13A1C5D3]]
 
-for item in todolist:
-    Sym2LowerBounds(*item)
+for item in todolist: Sym2LowerBounds(*item)
     
 #E6D4T2
 #rm: first to D5T1, then to D4T2.

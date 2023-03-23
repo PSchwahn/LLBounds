@@ -46,7 +46,8 @@ todolist+=[[G2,A2,bG2A2]]
 #F4A1G2
 F4=WeylCharacterRing("F4",style="coroots")
 A1G2=WeylCharacterRing("A1xG2",style="coroots")
-bF4A1G2=branching_rule("F4","A1xG
+bF4A1G2=branching_rule("F4","A1xG2","miscellaneous")
+todolist+=[[F4,A1G2,bF4A1G2]]
 
 #F4A2A2
 F4=WeylCharacterRing("F4",style="coroots")
@@ -175,5 +176,4 @@ D39=WeylCharacterRing("D39",style="coroots")
 bD39E6=branching_rule("D39","E6(0,1,0,0,0,0)",rule="plethysm")
 todolist+=[[D39,E6,bD39E6]]
 
-for item in todolist:
-    Sym2LowerBounds(*item)
+for item in todolist: Sym2LowerBounds(*item)
