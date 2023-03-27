@@ -510,9 +510,9 @@ def Sym2LowerBounds(G,H,b,startscan=0,endscan=-1):
         f.close()
         return 0
     #Single out those Fourier modes that have homs into PotInstab
-    format_string2="{:<"+str(spacing)+"}{:<15}{:<15}{:<15}{:<15}"
-    print(format_string2.format("Fourier mode","CasG","KT?","LL >=","LL >= 2E?"))
-    f.write(format_string2.format("Fourier mode","CasG","KT?","LL >=","LL >= 2E?")+"\n")
+    format_string2="{:<"+str(spacing)+"}{:<15}{:<15}{:<15}{:<15}{:<15}"
+    print(format_string2.format("Fourier mode","CasG","TT?","KT?","LL >=","LL >= 2E?"))
+    f.write(format_string2.format("Fourier mode","CasG","TT?","KT?","LL >=","LL >= 2E?")+"\n")
     for FourierMode in LiEscancas:
         LiERepG=FourierMode[0]
         repstring=omega(LiERepG.sage())
@@ -526,7 +526,21 @@ def Sym2LowerBounds(G,H,b,startscan=0,endscan=-1):
         #we only need those modes where we don't know q(R)>E:
         print(repstring+": Checking whether it has homs to PotInstab...",end="\r")
         if any(lie(LiERepGbranched._name+'|'+x._name).sage()!=0 for x in PotInstab):
-            #first, consider relevant part of Sym^2_0m:
+            print(repstring+": Computing dim Hom...                     ",end="\r")
+            killing=""
+            dimHomSym3=0
+            dimHomSym20=0
+            dimHomm=0
+            for i in range(0,LiERepGbranched.length().sage()):
+                summand=LiERepGbranched.expon(i+1)
+                coef=LiERepGbranched.coef(i+1).sage()
+                dimHomSym20+=coef*lie(LiESym20m._name+'|'+summand._name).sage()
+                dimHomSym3+=coef*lie(LiESym3m._name+'|'+summand._name).sage()
+                dimHomm+=coef*lie(LiEIsotropy._name+'|'+summand._name).sage()
+            if dimHomSym3<dimHomSym20: killing="!"
+            dimtt=dimHomSym20-dimHomm
+            if LiERepG.sage()==LiEAdG.expon(1).sage(): dimtt+=1
+            #Consider relevant part of Sym^2_0m:
             print(repstring+": Tensoring with Sym20m...                        ",end="\r")
             RelevantSym20m=[]
             FibrewiseTermList=[]
@@ -577,20 +591,9 @@ def Sym2LowerBounds(G,H,b,startscan=0,endscan=-1):
             goodbound=""
             if LLlower>2*E: goodbound=">"
             if LLlower==2*E: goodbound=">="
-            print(repstring+": Checking for Killing tensors...                 ",end="\r")
-            #check for Killing tensors
-            killing=""
-            dimHomSym3=0
-            dimHomSym20=0
-            for i in range(0,LiERepGbranched.length().sage()):
-                summand=LiERepGbranched.expon(i+1)
-                coef=LiERepGbranched.coef(i+1).sage()
-                dimHomSym20+=coef*lie(LiESym20m._name+'|'+summand._name).sage()
-                dimHomSym3+=coef*lie(LiESym3m._name+'|'+summand._name).sage()
-            if dimHomSym3<dimHomSym20: killing="!"
-            print(format_string2.format(repstring,str(CasG),killing,str(LLlower),goodbound)\
+            print(format_string2.format(repstring,str(CasG),str(dimtt),killing,str(LLlower),goodbound)\
                   +" (tplength: "+str(tplength)+", skipped: "+str(skipped)+")")
-            f.write(format_string2.format(repstring,str(CasG),killing,str(LLlower),goodbound)+"\n")
+            f.write(format_string2.format(repstring,str(CasG),str(dimtt),killing,str(LLlower),goodbound)+"\n")
         else: print((spacing+50)*" ",end="\r")
     print("\nDone!")
     f.write("\nDone!")
@@ -755,9 +758,9 @@ def Sym2LowerBoundsWithTorus(G,Hss,rm,startscan=0,endscan=-1):
         f.close()
         return 0
     #Single out those Fourier modes that have homs into PotInstab
-    format_string2="{:<"+str(spacing)+"}{:<15}{:<15}{:<15}{:<15}"
-    print(format_string2.format("Fourier mode","CasG","KT?","LL >=","LL >= 2E?"))
-    f.write(format_string2.format("Fourier mode","CasG","KT?","LL >=","LL >= 2E?")+"\n")
+    format_string2="{:<"+str(spacing)+"}{:<15}{:<15}{:<15}{:<15}{:<15}"
+    print(format_string2.format("Fourier mode","CasG","TT?","KT?","LL >=","LL >= 2E?"))
+    f.write(format_string2.format("Fourier mode","CasG","TT?","KT?","LL >=","LL >= 2E?")+"\n")
     for FourierMode in LiEscancas:
         LiERepG=FourierMode[0]
         repstring=omega(LiERepG.sage())
@@ -771,7 +774,21 @@ def Sym2LowerBoundsWithTorus(G,Hss,rm,startscan=0,endscan=-1):
         #we only need those modes where we don't know q(R)>E:
         print(repstring+": Checking whether it has homs to PotInstab...",end="\r")
         if any(lie(LiERepGbranched._name+'|'+x._name).sage()!=0 for x in PotInstab):
-            #first, consider relevant part of Sym^2_0m:
+            print(repstring+": Computing dim Hom...                     ",end="\r")
+            killing=""
+            dimHomSym3=0
+            dimHomSym20=0
+            dimHomm=0
+            for i in range(0,LiERepGbranched.length().sage()):
+                summand=LiERepGbranched.expon(i+1)
+                coef=LiERepGbranched.coef(i+1).sage()
+                dimHomSym20+=coef*lie(LiESym20m._name+'|'+summand._name).sage()
+                dimHomSym3+=coef*lie(LiESym3m._name+'|'+summand._name).sage()
+                dimHomm+=coef*lie(LiEIsotropy._name+'|'+summand._name).sage()
+            if dimHomSym3<dimHomSym20: killing="!"
+            dimtt=dimHomSym20-dimHomm
+            if LiERepG.sage()==LiEAdG.expon(1).sage(): dimtt+=1
+            #Consider relevant part of Sym^2_0m:
             print(repstring+": Tensoring with Sym20m...                        ",end="\r")
             RelevantSym20m=[]
             FibrewiseTermList=[]
@@ -822,34 +839,25 @@ def Sym2LowerBoundsWithTorus(G,Hss,rm,startscan=0,endscan=-1):
             goodbound=""
             if LLlower>2*E: goodbound=">"
             if LLlower==2*E: goodbound=">="
-            print(repstring+": Checking for Killing tensors...                 ",end="\r")
-            #check for Killing tensors
-            killing=""
-            dimHomSym3=0
-            dimHomSym20=0
-            for i in range(0,LiERepGbranched.length().sage()):
-                summand=LiERepGbranched.expon(i+1)
-                coef=LiERepGbranched.coef(i+1).sage()
-                dimHomSym20+=coef*lie(LiESym20m._name+'|'+summand._name).sage()
-                dimHomSym3+=coef*lie(LiESym3m._name+'|'+summand._name).sage()
-            if dimHomSym3<dimHomSym20: killing="!"
-            print(format_string2.format(repstring,str(CasG),killing,str(LLlower),goodbound)\
+            print(format_string2.format(repstring,str(CasG),str(dimtt),killing,str(LLlower),goodbound)\
                   +" (tplength: "+str(tplength)+", skipped: "+str(skipped)+")")
-            f.write(format_string2.format(repstring,str(CasG),killing,str(LLlower),goodbound)+"\n")
+            f.write(format_string2.format(repstring,str(CasG),str(dimtt),killing,str(LLlower),goodbound)+"\n")
         else: print((75)*" ",end="\r")
     print("\nDone!")
     f.write("\nDone!")
     f.close()
 #Sym2LowerBounds for flag manifolds:
+#Instead of CasTorus, use inverse Cartan matrix
 #input: just the cartan type string of G
 def Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1):
+    print("G="+cartantype)
+    print("Initializing...",end="\r")
     famG=cartantype[0]
     rankG=int(cartantype[1:])
     LiEG=lie(cartantype)
     LiEH=lie("T"+cartantype[1:])
     dimG=lie.dim(LiEG).sage()
     G=WeylCharacterRing(cartantype,style="coroots")
-    print("G="+str(LiEG)+", H="+str(LiEH))
     f=open(str(LiEG)+str(LiEH)+".txt","w")
     f.write("====== Sym2LowerBounds ("+version+") for G="+str(LiEG)+", H="+str(LiEH)+"======\n\n")
     print("Computing isotropy representation...",end="\r")
@@ -961,9 +969,9 @@ def Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1):
         f.close()
         return 0
     #Single out those Fourier modes that have homs into PotInstab
-    format_string2="{:<"+str(spacing)+"}{:<15}{:<15}{:<15}"
-    print(format_string2.format("Fourier mode","CasG","LL >=","LL >= 2E?"))
-    f.write(format_string2.format("Fourier mode","CasG","LL >=","LL >= 2E?")+"\n")
+    format_string2="{:<"+str(spacing)+"}{:<15}{:<15}{:<15}{:<15}"
+    print(format_string2.format("Fourier mode","CasG","TT?","LL >=","LL >= 2E?"))
+    f.write(format_string2.format("Fourier mode","CasG","TT?","LL >=","LL >= 2E?")+"\n")
     for FourierMode in LiEscancas:
         LiERepG=FourierMode[0]
         repstring=omega(LiERepG.sage())
@@ -977,7 +985,17 @@ def Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1):
         #we only need those modes where we don't know q(R)>E:
         print(repstring+": Checking whether it has homs to PotInstab...",end="\r")
         if any(lie(LiERepGbranched._name+'|'+x._name).sage()!=0 for x in PotInstab):
-            #first, consider relevant part of Sym^2_0m:
+            print(repstring+": Computing dim Hom...                     ",end="\r")
+            dimHomSym20=0
+            dimHomm=0
+            for i in range(0,LiERepGbranched.length().sage()):
+                summand=LiERepGbranched.expon(i+1)
+                coef=LiERepGbranched.coef(i+1).sage()
+                dimHomSym20+=coef*lie(LiESym20m._name+'|'+summand._name).sage()
+                dimHomm+=coef*lie(LiEIsotropy._name+'|'+summand._name).sage()
+            dimtt=dimHomSym20-dimHomm
+            if LiERepG.sage()==LiEAdG.expon(1).sage(): dimtt+=1
+            #Consider relevant part of Sym^2_0m:
             print(repstring+": Tensoring with Sym20m...                        ",end="\r")
             RelevantSym20m=[]
             FibrewiseTermList=[]
@@ -1038,16 +1056,16 @@ def Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1):
             goodbound=""
             if LLlower>2*E: goodbound=">"
             if LLlower==2*E: goodbound=">="
-            print(repstring+": Checking for Killing tensors...                 ",end="\r")
-            print(format_string2.format(repstring,str(CasG),str(LLlower),goodbound)\
+            print(format_string2.format(repstring,str(CasG),str(dimtt),str(LLlower),goodbound)\
                   +" (tplength: "+str(tplength)+", skipped: "+str(skipped)+")")
-            f.write(format_string2.format(repstring,str(CasG),str(LLlower),goodbound)+"\n")
+            f.write(format_string2.format(repstring,str(CasG),str(dimtt),str(LLlower),goodbound)+"\n")
         else: print((75)*" ",end="\r")
     print("\nDone!")
     f.write("\nDone!")
     f.close()
     
-#added startscan and endcan parameters for non-semisimple isotropy / full flags
+#added startscan and endcan parameters
 #changed key type for CasHDict and CasGMinDict from LiEobject to tuple.
-version="2023/03/04 19:15"
+#added column "TT?" for dimension of tt
+version="2023/03/27 15:00"
 print("Sym2Bounds version "+version+".")

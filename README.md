@@ -20,7 +20,7 @@ initializes `G` as the compact Lie group A2xB3. The optional parameter refers to
 
 Most of the implemented functions require a *branching rule* as input. This can be obtained using the Sage function `branching_rule`.
 
-LiE instead uses a *restriction matrix* for branching. Since LiE works with row vector rather than column vectors, this matrix is the transpose of the one defined in the article.
+LiE instead uses a *restriction matrix* for branching. Since LiE works with row vector rathers than column vectors, this matrix is the transpose of the one defined in the article.
 
 ## Documentation
 
@@ -28,7 +28,7 @@ LiE instead uses a *restriction matrix* for branching. Since LiE works with row 
 
 `Sym2LowerBounds(G,H,b,startscan=0,endscan=-1)` takes as input the WeylCharacterRings `G` and `H` corresponding to a **simple** Lie group *G* and a **semisimple** subgroup *H*, a branching rule `b` (alternatively the restriction matrix as used in LiE, given as a list of lists), and the two optional arguments `startscan` and `endscan` which refer to the range of Casimir eigenvalues of *G* for which Fourier modes should be scanned. If left blank, the appropriate upper bounds is automatically determined using the *crude estimate*.
 
-The output consists of fibrewise estimates for *A\*A* and *q(R)* on the standard homogeneous space *G/H* as well as Fourier-mode-wise lower bounds for the Lichnerowicz Laplacian (if *q(R)>E* does not follow from the first step). Additionally, the program tries to find Killing tensors in each Fourier mode by comparing *Hom(.,Sym^2_0)* with *Hom(.,Sym^2)*.
+The output consists of fibrewise estimates for *A\*A* and *q(R)* on the standard homogeneous space *G/H* as well as Fourier-mode-wise lower bounds for the Lichnerowicz Laplacian (if *q(R)>E* does not follow from the first step). Additionally, the program computes the dimension of the space of tt-matrix coefficients and tries to find Killing tensors in each Fourier mode by comparing *Hom(.,Sym^2_0m)* with *Hom(.,m)* and *Hom(.,Sym^3m)*.
 
 This is printed to the console and also to a `.txt` file, named by the Cartan types of *G* and *H*.
 
@@ -38,11 +38,11 @@ This is printed to the console and also to a `.txt` file, named by the Cartan ty
 
 ### Sym2LowerBoundsFullFlag
 
-`Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1)` takes as input just the Cartan type string `cartantype` of a **simple** Lie group *G*. The optional arguments and the output are as above, except that the fibrewise estimates are not printed for each *H*-isotype to avoid cluttering.
+`Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1)` takes as input just the Cartan type string `cartantype` of a **simple** Lie group *G*. The optional arguments and the output are as above, except that the fibrewise estimates are not printed for each *H*-isotype to avoid cluttering, and the program does not search for Killing tensors.
 
 ## Subfolders
 
-There is a subfolder containing a `.sage` file for each family and for the two classes of exceptions. Make sure to comment/uncomment or alter the `for` loops at the end of each file that starts the computation as needed.
+There is a subfolder containing a `.sage` file for each family and for the two classes of exceptions. Make sure to comment/uncomment or alter the `for` loops at the end of each file as is needed.
 
 ## Troubleshooting
 
@@ -54,8 +54,7 @@ This can be remedied by raising the LiE parameter `maxobjects` (standard 99999).
 
     lie.eval("maxobjects 999999")
     
-Sometimes a higher value is needed. However, this may lead to longer computation times.
-
+Sometimes an even higher value is needed. However, this may lead to longer computation times.
 
 ### Hash table overflow
 
