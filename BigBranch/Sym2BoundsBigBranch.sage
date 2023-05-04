@@ -556,3 +556,6 @@ def ScanCasJustLiE(LiEG,q):
                 lie.eval(LiErep._name+"["+str(i)+"]+=1")
                 c=LiECasSimpleRaw(LiErep,LiEG)/casadraw
     return sorted(out,key=lambda pair: pair[1])
+    
+version="2023/05/04 20:00"
+print("Sym2BoundsBigBranch version "+version+".")
