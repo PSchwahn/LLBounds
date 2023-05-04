@@ -38,11 +38,29 @@ This is printed to the console and also to a `.txt` file, named by the Cartan ty
 
 ### Sym2LowerBoundsFullFlag
 
-`Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1)` takes as input just the Cartan type string `cartantype` of a **simple** Lie group *G*. The optional arguments and the output are as above, except that the fibrewise estimates are not printed for each *H*-isotype to avoid cluttering, and the program does not search for Killing tensors.
+`Sym2LowerBoundsFullFlag(cartantype,startscan=0,endscan=-1)` takes as input just the Dynkin type string `cartantype` of a **simple** Lie group *G*. The optional arguments and the output are as above, except that the fibrewise estimates are not printed for each *H*-isotype to avoid cluttering, and the program does not search for Killing tensors.
 
 ## Subfolders
 
 There is a subfolder containing a `.sage` file for each family and for the two classes of exceptions. Make sure to comment/uncomment or alter the `for` loops at the end of each file as is needed.
+
+## BigBranch
+
+This involves an alternative, faster branching routine for large *rank(G)*, similar to what one would do by hand. Requires loading
+
+    load("Sym2BoundsBigBranch.sage")
+    
+inside the subfolder `BigBranch`.
+
+The branching routine does currently not work if *rank(G)* is too small is comparison with the occurring highest weight vectors. This is in particular the case for spin modules, and happens always if *G=SU(n)*. Again, there is a subfolder containing a `.sage` file for all the families where the procedure does work.
+
+### Sym2LowerBoundsBigBranch
+
+`Sym2LowerBoundsBig(Gstr,Hstr,o1,endscan=-1,verbose=False)` takes as input the Dynkin type string `Gstr` of a **simple** Lie group *G*, the Dynkin type string `Hstr` of a **semisimple** subgroup *H* (in Sage notation, e.g. "A12xC7"), a string `o1` containing the branched standard representation of *G*, denoted as a LiE polynomial. The optional argument `endscan` is as above. `verbose` is a debug option that prints what happens during the Fourier scan phase.
+
+### Sym2LowerBoundsBigBranchWithTorus
+
+`Sym2LowerBoundsBigWithTorus(Gstr,Hssstr,o1,rm,endscan=-1,verbose=False)` works similarly. The additional input `rm` (LiE restriction matrix, given as a list of lists) is only needed to compute Casimir eigenvalues of *H*.
 
 ## Troubleshooting
 
@@ -62,4 +80,8 @@ There seems to be no way to manipulate the hash table used in the LiE interface.
 
 ### Non-virtual decomposition failed
 
-This seems to be a problem within LiE itself. A reproducible example is the branching of the *D124*-module \[2,2,0,0,0,...\] to *E8*.
+This seems to be a problem within LiE itself. A reproducible example is the branching of the *D124*-module \[2,2,0,0,0,...\] to *E8*. We recommend using the BigBranch procedure instead.
+
+### LiE interpreter crashed - automatically restarting
+
+This may happen sometimes, but not deterministically so. Unfortunately the Sage-LiE interface does not recover automatically from this, so you need to restart Sage itself.
