@@ -85,3 +85,7 @@ This seems to be a problem within LiE itself. A reproducible example is the bran
 ### LiE interpreter crashed - automatically restarting
 
 This may happen sometimes, but not deterministically so. Unfortunately the Sage-LiE interface does not recover automatically from this, so you need to restart Sage itself.
+
+### Internal error (SAtensor): remainder from 2.
+
+Also a problem of LiE. It occurs when taking the symmetric power of a *G*-module if *rank(G)* is too large.
