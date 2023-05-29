@@ -1,4 +1,4 @@
-#Isotropy irreducible exceptions (rank G <= 39)
+#Isotropy irreducible exceptions (rank G <= 39), for larger rank see folder BigBranch
 
 todolist=[]
 
