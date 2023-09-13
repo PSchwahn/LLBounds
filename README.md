@@ -52,7 +52,7 @@ This involves an alternative, faster branching routine for large *rank(G)*, simi
     
 inside the subfolder `BigBranch`.
 
-The branching routine does currently not work if *rank(G)* is too small in comparison with the amount of right padding zeroes in the occurring highest weight vectors. This is in particular the case for spin modules, and happens always if *G=SU(n)*. Again, there is a subfolder containing a `.sage` file for all the families where the procedure does work.
+The branching routine does currently not work if there are too few right padding zeroes in the occurring highest weight vectors. This happens if *rank(G)* is too small, for spin modules, and always if *G=SU(n)*. Again, there is a subfolder containing a `.sage` file for all the families where the procedure does work.
 
 ### Sym2LowerBoundsBigBranch
 
