@@ -1,6 +1,6 @@
 # LLBounds
 
-A project for computing lower bounds for the Lichnerowicz Laplacian on homogeneous spaces G/H with G simple and Einstein standard metric.
+A project for computing lower bounds for the Lichnerowicz Laplacian on homogeneous spaces G/H with G simple and Einstein standard metric. This code was used to generate data for the article [arXiv:2304.10607](https://arxiv.org/abs/2304.10607).
 
 Running the code requires an installation of both Sage and LiE.
 
@@ -16,11 +16,11 @@ The Sage function `WeylCharacterRing` is the standard to handle compact semisimp
 
     G = WeylCharacterRing("A2xB3",style="coroots")
     
-initializes `G` as the compact Lie group A2xB3. The optional parameter refers to the basis in which highest weights are given. For example `G(1,0,1,0,0)` will correspond to the tensor product of standard representations of A2 and B3.
+initializes `G` as the compact Lie group A2xB3. The optional parameter refers to the basis in which highest weights are given (in this case the simple coroots, i.e. fundamental weights). For example `G(1,0,1,0,0)` will correspond to the tensor product of standard representations of A2 and B3.
 
 Most of the implemented functions require a *branching rule* as input. This can be obtained using the Sage function `branching_rule`.
 
-LiE instead uses a *restriction matrix* for branching. Since LiE works with row vector rathers than column vectors, this matrix is the transpose of the one defined in the article.
+LiE instead uses a *restriction matrix* for branching. Since LiE works with row vectors rather than column vectors, this matrix is the transpose of the one defined in the article.
 
 ## Documentation
 
