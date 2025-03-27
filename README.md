@@ -4,6 +4,10 @@ A project for computing lower bounds for the Lichnerowicz Laplacian on homogeneo
 
 Running the code requires an installation of both Sage and LiE.
 
+**Warning**: I don't recall the exact SageMath version used for this project, but it might have been 9.8 or earlier. It seems that the implementation Sage's `BranchingRule` class has changed (as of SageMath version 10.4). As a consequence, the function `resmatrix` (which converts a Sage branching rule to a LiE restriction matrix) no longer works. In particular, the main functions (like `Sym2LowerBounds`) no longer work with Sage branching rules. I plan on fixing this (hopefully) soon.
+
+That said, the main functions still work properly when using a LiE restriction matrix (given as a list of lists) in place of the Sage branching rule.
+
 ## Usage
 
 Open sage in a terminal and type:
